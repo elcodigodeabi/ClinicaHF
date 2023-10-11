@@ -51,7 +51,7 @@ INSERT INTO roles (rol_id, descripcion) VALUES
 
 -- Insertar datos en la tabla "usuario"
 INSERT INTO usuario (id, nombre, usuario, contrasena, rol_id) VALUES
-(1, 'Agustina Cherry', '34789098', 'noche1990', 1),
+(1, 'Agustina Cherry', '12345678', 'noche1990', 1),
 (2, 'Federico Lacroze', '25780283', 'plastico10', 2);
 
 -- Insertar datos en la tabla "areas" con IDs en orden incremental
