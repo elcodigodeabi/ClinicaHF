@@ -27,12 +27,13 @@ session_start(); // Inicia la sesión
         <tr>
             <th>Apellido</th>
             <th>Nombre</th>
+            <th>DNI</th> <!-- Agregar la columna para DNI -->
             <th>Mail</th>
             <th>Teléfono</th>
             <th>Fecha</th>
             <th>Horario</th>
-            <th>Área</th>
-            <th>Médico</th>
+            <th>Area</th>
+            <th>Medico</th>
         </tr>
         <?php
         include 'conexion.php'; // Incluye el archivo de conexión
@@ -41,7 +42,7 @@ session_start(); // Inicia la sesión
         $conexion = conectarBD();
 
         // Realiza una consulta para obtener los datos de los turnos y sus descripciones de área y médico
-        $sql = "SELECT t.apellido, t.nombre, t.mail, t.telefono, t.fecha, t.horario, a.descripcion AS area, m.descripcion AS medico FROM turnos t
+        $sql = "SELECT t.apellido, t.nombre, t.dni, t.mail, t.telefono, t.fecha, t.horario, a.descripcion AS area, m.descripcion AS medico FROM turnos t
                 JOIN areas a ON t.are_id = a.are_id
                 JOIN medicos m ON t.med_id = m.med_id";
         $result = $conexion->query($sql);
@@ -51,6 +52,7 @@ session_start(); // Inicia la sesión
             echo "<tr>";
             echo "<td>" . $row['apellido'] . "</td>";
             echo "<td>" . $row['nombre'] . "</td>";
+            echo "<td>" . $row['dni'] . "</td>"; // Agregar el campo DNI
             echo "<td>" . $row['mail'] . "</td>";
             echo "<td>" . $row['telefono'] . "</td>";
             echo "<td>" . $row['fecha'] . "</td>";
