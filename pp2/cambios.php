@@ -153,3 +153,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conexion->close();
 }
 ?>
+CREATE TABLE dias (
+    dia_id INT PRIMARY KEY,
+    descripcion VARCHAR(20)
+);
+
+INSERT INTO dias (dia_id, descripcion) VALUES
+(1, 'Lunes'),
+(2, 'Martes'),
+(3, 'Miércoles'),
+(4, 'Jueves'),
+(5, 'Viernes'),
+(6, 'Sábado'),
+(7, 'Domingo');
+
+-- Modificar la tabla "horarios_medicos"
+ALTER TABLE horarios_medicos
+DROP COLUMN dia_semana;
+
+ALTER TABLE horarios_medicos
+ADD COLUMN dia_id INT,
+ADD FOREIGN KEY (dia_id) REFERENCES dias(dia_id);
